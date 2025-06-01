@@ -1,0 +1,19 @@
+# Ignorer l’environnement virtuel
+.venv/
+
+# Ignorer les caches Python
+__pycache__/
+*.py[cod]
+
+# Ignorer les fichiers de log
+*.log
+
+# Ignorer les notebooks Jupyter de checkpoints (si besoin)
+.ipynb_checkpoints/
+
+# Ignorer tout autre dossier/binaire
+eda_app/__pycache__/
+etl/__pycache__/
+
+# Par sécurité, ajouter d’autres règles selon vos bibliothèques…
+# (par ex. dossiers de cache, fichiers sensibles…)
