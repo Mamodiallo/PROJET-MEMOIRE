@@ -82,7 +82,7 @@ elif selection == "Suivi mensuel":
         )
 
     df = load_data()
-    code_map = {1: "Complété", 2: "Abandonné", 0: "Interrompu"}
+    code_map = {1: "Complétés", 2: "Abandonnés", 0: "Interrompus"}
     df["disposition"] = df["Codededisposition"].map(code_map).fillna("Autre")
 
     # Sidebar : filtres
