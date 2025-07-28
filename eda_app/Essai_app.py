@@ -18,6 +18,10 @@ st.set_page_config(
 primary_color   = "#E63946"
 background_card = "#F8F9FA"
 
+def show_chart(fig, chart_type, key=None):
+    st.plotly_chart(fig, use_container_width=True, key=key)
+    st.caption(f"Type de graphique : {chart_type}")
+
 # ───────────────────────────────────────────────────────────────────────────────
 # 1) MENU LATÉRAL À ONGLET
 # ───────────────────────────────────────────────────────────────────────────────
@@ -154,7 +158,7 @@ elif selection == "Suivi mensuel":
         margin=dict(t=40, b=10, l=10, r=10),
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5)
     )
-    st.plotly_chart(fig, use_container_width=True)
+    show_chart(fig, "Camembert")
 # ───────────────────────────────────────────────────────────────────────────────
 # 4) PAGE “Dashboard”
 # ───────────────────────────────────────────────────────────────────────────────
@@ -279,7 +283,7 @@ else:
         fig.update_traces(texttemplate="%{y:.1f}%", textposition="outside")
         fig.update_layout(margin=dict(t=50, b=20, l=20, r=20))
 
-    st.plotly_chart(fig, use_container_width=True)
+    show_chart(fig, "Barres")
 
     # ───────────────────────────────────────────────────────────────────────────
     # 5) DISTRIBUTION Q15 (4 catégories)
@@ -359,7 +363,7 @@ else:
         ),
         coloraxis_showscale=False
     )
-    st.plotly_chart(fig_q15, use_container_width=True)
+    show_chart(fig_q15, "Barres")
          # ───────────────────────────────────────────────────────────
     # 6) Q3 – Souscription du contrat (version accent-insensible)
     # ───────────────────────────────────────────────────────────
@@ -440,7 +444,7 @@ else:
         yaxis=dict(showgrid=False),
         legend=dict(orientation="v", yanchor="top", y=1, xanchor="right", x=1)
     )
-    st.plotly_chart(fig_q3, use_container_width=True)
+    show_chart(fig_q3, "Barres")
      # ───────────────────────────────────────────────────────────
     # 7) Q4 – Distribution de la question Q4
     # ───────────────────────────────────────────────────────────
@@ -480,7 +484,7 @@ else:
     )
 
     # clé unique pour éviter les duplications
-    st.plotly_chart(fig_q4, use_container_width=True, key="dist_q4_final")
+    show_chart(fig_q4, "Barres", key="dist_q4_final")
     
     # ───────────────────────────────────────────────────────────
     # 8) Q6 – Déclaration du sinistre
@@ -543,7 +547,7 @@ else:
         margin=dict(t=40, b=20, l=20, r=20),
         legend=dict(orientation="v", yanchor="top", y=1, xanchor="right", x=1)
     )
-    st.plotly_chart(fig_q6, use_container_width=True, key="chart_q6")
+    show_chart(fig_q6, "Camembert", key="chart_q6")
         # ───────────────────────────────────────────────────────────
     # 9) Q5 – Distribution en barres (modalités raccourcies)
     # ───────────────────────────────────────────────────────────
@@ -614,7 +618,7 @@ else:
             showgrid=False
         )
     )
-    st.plotly_chart(fig_q5, use_container_width=True, key="bar_q5")
+    show_chart(fig_q5, "Barres", key="bar_q5")
     
         # ───────────────────────────────────────────────────────────
     # 10) Q7 – Distribution en barres (2 modalités)
@@ -681,7 +685,7 @@ else:
         )
     )
 
-    st.plotly_chart(fig_q7, use_container_width=True, key="bar_q7")
+    show_chart(fig_q7, "Barres", key="bar_q7")
     
         # ───────────────────────────────────────────────────────────
     # 10) Suivi du dossier & Délai (Q8 & Q13)
@@ -758,9 +762,9 @@ else:
     # ───────────────────────────────────────────────────────────
     col1, col2 = st.columns(2, gap="large")
     with col1:
-        st.plotly_chart(fig_q8, use_container_width=True, key="chart_q8")
+        show_chart(fig_q8, "Camembert", key="chart_q8")
     with col2:
-        st.plotly_chart(fig_q13, use_container_width=True, key="chart_q13")
+        show_chart(fig_q13, "Camembert", key="chart_q13")
         
         # ───────────────────────────────────────────────────────────
     # 11) Réception du téléphone (Q9 & Q11)
@@ -835,9 +839,9 @@ else:
     # afficher côte à côte
     col1, col2 = st.columns(2, gap="large")
     with col1:
-        st.plotly_chart(fig_q9, use_container_width=True, key="chart_q9")
+        show_chart(fig_q9, "Camembert", key="chart_q9")
     with col2:
-        st.plotly_chart(fig_q11, use_container_width=True, key="chart_q11")
+        show_chart(fig_q11, "Camembert", key="chart_q11")
 
 
 
