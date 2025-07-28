@@ -18,6 +18,15 @@ st.set_page_config(
 primary_color   = "#E63946"
 background_card = "#F8F9FA"
 
+def render_card(col, icon, title, value, delta=None):
+    col.markdown(
+        f"<div style='background:{background_card}; padding:20px; "
+        f"border-radius:8px; text-align:center;'>"
+        f"<h3>{icon} {title}</h3><h1>{value}</h1>"
+        + (f"<p style='color:{primary_color}; margin:0;'>{delta}</p>" if delta else "") +
+        "</div>", unsafe_allow_html=True
+    )
+
 def show_chart(fig, chart_type, key=None):
     st.plotly_chart(fig, use_container_width=True, key=key)
     st.caption(f"Type de graphique : {chart_type}")
@@ -124,15 +133,8 @@ elif selection == "Suivi mensuel":
     pct_c = comp/total*100 if total else 0
     pct_i = inter/total*100 if total else 0
 
+
     k1, k2, k3 = st.columns(3, gap="large")
-    def render_card(col, icon, title, value, delta=None):
-        col.markdown(
-            f"<div style='background:{background_card}; padding:20px; "
-            f"border-radius:8px; text-align:center;'>"
-            f"<h3>{icon} {title}</h3><h1>{value}</h1>"
-            + (f"<p style='color:{primary_color}; margin:0;'>{delta}</p>" if delta else "") +
-            "</div>", unsafe_allow_html=True
-        )
 
     render_card(k1, "👥", "Total sollicités", total)
     render_card(k2, "✅", "Complétés", comp, f"{pct_c:.1f}%")
