@@ -17,3 +17,5 @@ etl/__pycache__/
 
 # Par sécurité, ajouter d’autres règles selon vos bibliothèques…
 # (par ex. dossiers de cache, fichiers sensibles…)
+/eda_app/
+
