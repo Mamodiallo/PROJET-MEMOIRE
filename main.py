@@ -12,7 +12,7 @@ import unicodedata
 # 0) CONFIG
 # ───────────────────────────────────────────────────────────────────────────────
 st.set_page_config(page_title="Assurance Mobile – Mémoire", layout="wide", initial_sidebar_state="expanded")
-primary_color   = "#E63946"
+primary_color   = "#E63947"
 background_card = "#F8F9FA"
 
 # Dossier racine du projet (où se trouve ce fichier)
@@ -110,7 +110,7 @@ if selection == "Projet mémoire":
     ):
         with col:
             if path.exists():
-                st.image(str(path), caption=caption, use_container_width=True)
+                st.image(str(path), caption=caption, use_column_width=True)
             else:
                 st.caption(f"🔎 Logo {caption} introuvable : `{path.name}`")
 
