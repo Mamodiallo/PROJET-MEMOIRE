@@ -110,7 +110,7 @@ if selection == "Projet mémoire":
     ):
         with col:
             if path.exists():
-                st.image(str(path), caption=caption, use_column_width=True)
+                st.image(str(path), caption=caption, use_container_width=True)
             else:
                 st.caption(f"🔎 Logo {caption} introuvable : `{path.name}`")
 
