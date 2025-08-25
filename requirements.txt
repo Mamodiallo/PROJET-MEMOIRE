@@ -3,7 +3,3 @@ pandas==2.2.2
 numpy==1.26.4
 plotly==5.22.0
 streamlit-option-menu==0.4.0
-<<<<<<< HEAD
-
-=======
->>>>>>> 0dd1214 (Mise à jour requirements.txt)
